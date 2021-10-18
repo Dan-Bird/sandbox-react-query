@@ -20,6 +20,7 @@ export const RQSuperHeroesPage = () => {
       // refetchIntervalInBackground: true,
       onSuccess,
       onError,
+      select: data => data.data.map(hero => hero.name),
     }
   );
 
@@ -35,9 +36,12 @@ export const RQSuperHeroesPage = () => {
     <>
       <h2>RQ Super Heroes Page</h2>
       <button onClick={refetch}>Fetch Heroes</button>
-      {data?.data.map(hero => {
+      {/* {data?.data.map(hero => {
         return <div key={hero.name}>{hero.name}</div>;
-      })}
+      })} */}
+      {data.map(name => (
+        <div key={name}>{name}</div>
+      ))}
     </>
   );
 };
