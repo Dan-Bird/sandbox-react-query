@@ -3,6 +3,11 @@ import axios from 'axios';
 
 const fetchSuperHeroes = () => axios.get('http://localhost:4000/superheroes');
 
+const onSuccess = data => console.log('side effect after data fetching', data);
+
+const onError = error =>
+  console.log('side effect after encountering error', error);
+
 export const RQSuperHeroesPage = () => {
   const { isLoading, isFetching, data, isError, error, refetch } = useQuery(
     'super-heroes',
@@ -13,6 +18,8 @@ export const RQSuperHeroesPage = () => {
       // staleTime: 30_000,
       // refetchInterval: 2000,
       // refetchIntervalInBackground: true,
+      onSuccess,
+      onError,
     }
   );
 
