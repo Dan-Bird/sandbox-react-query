@@ -12,6 +12,6 @@ export const useSuperHeroesData = (onSuccess, onError) => {
     // refetchIntervalInBackground: true,
     onSuccess,
     onError,
-    select: data => data.data.map(hero => hero.name),
+    // select: data => data.data.map(hero => hero.name),
   });
 };
